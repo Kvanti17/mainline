@@ -16,7 +16,7 @@ as `make` or `gmake`.
 There are several makefile stubs in `make/`.  You can look for your architecture
 there or roll your own.  Typing 'make' (or possibly gmake) without any arguments 
 will cause the build program to look for `uname -s`.mk(for example, on Linux, it 
-will look for Linux.mk).  You can choose the platform by typing 'make PLATFORM=arch'.
+will look for Linux.mk).  You can choose the platform by typing `make PLATFORM=arch`.
 
 There are various variables to set in the .mk files.  The most important are
 CXX and CXXFLAGS; the rest are performance and debugging-related(these are 
@@ -25,31 +25,31 @@ of a fairly well-optimized .mk file.
 
 ## Makefile variables:
 
-CXX: C++ compiler.  For example, for a serial compile, set this to g++.  For
+* `CXX`: C++ compiler.  For example, for a serial compile, set this to g++.  For
 parallel, set it to mpiCC or mpicxx (or mpic++).
 
-CXXFLAGS: Flags to pass to the compiler.  Put optimization (-O2) flags, etc
+* `CXXFLAGS`: Flags to pass to the compiler.  Put optimization (-O2) flags, etc
 here.  Must also include the option "$(INCLUDEPATH)"
 
-DEBUG: Define any debugging flags here.  An optimized DEBUG might be
-'-DNDEBUG'.  A safe and slow DEBUG could be 
-'-DDEBUG_WRITE -DRANGE_CHECKING'
+* `DEBUG`: Define any debugging flags here.  An optimized DEBUG might be
+`-DNDEBUG`.  A safe and slow DEBUG could be 
+`-DDEBUG_WRITE -DRANGE_CHECKING`
 
-LDFLAGS: Linker flags.  Usually you don't need anything here, but some 
+* `LDFLAGS`: Linker flags.  Usually you don't need anything here, but some 
 compilers need '-lm' for the math libraries.
 
-BLAS_LIBS: The BLAS libraries(for example: -L/usr/lib -lcblas
+* `BLAS_LIBS`: The BLAS libraries(for example: -L/usr/lib -lcblas
 
-LAPACK_LIBS: LAPACK libs(as BLAS) (ex. -L/opt/lapack/lib -llapack)
+* `LAPACK_LIBS`: LAPACK libs(as BLAS) (ex. -L/opt/lapack/lib -llapack)
 
-LAPACK_INCLUDE: LAPACK headers (for examples -I/opt/lapack/
+* `LAPACK_INCLUDE`: LAPACK headers (for examples -I/opt/lapack/
 
-EINSPLINE_LIBS: Einspline libs
+* `EINSPLINE_LIBS`: Einspline libs
 
-EINSPLINE_INCLUDE: Einspline include directory
+* `EINSPLINE_INCLUDE`: Einspline include directory
 
 
-DEPENDMAKER: If you have gcc, it should be g++ -MM -I $(INCLUDEPATH).
+* `DEPENDMAKER`: If you have gcc, it should be g++ -MM -I $(INCLUDEPATH).
 
 
 List of preprocessor flags(these may be defined by -D[FLAG] with most
