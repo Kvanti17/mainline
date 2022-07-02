@@ -1,13 +1,19 @@
 
-To build:
+## To build:
 
-for the impatient: cd src; make;
-for the slightly less impatient: cd src; make PLATFORM=ARCH;
+for the impatient:
+```
+cd src; make;
+```
+for the slightly less impatient: 
+```
+cd src; make PLATFORM=ARCH;
+```
 
-NOTE: The build system currently requires GNU make.  This can usually be called
-as 'make' or 'gmake'.
+NOTE: The build system currently requires `GNU make`.  This can usually be called
+as `make` or `gmake`.
 
-There are several makefile stubs in make/.  You can look for your architecture
+There are several makefile stubs in `make/`.  You can look for your architecture
 there or roll your own.  Typing 'make' (or possibly gmake) without any arguments 
 will cause the build program to look for `uname -s`.mk(for example, on Linux, it 
 will look for Linux.mk).  You can choose the platform by typing 'make PLATFORM=arch'.
@@ -17,7 +23,7 @@ CXX and CXXFLAGS; the rest are performance and debugging-related(these are
 also very important in large calculations!)  See make/Linux.mk for an example
 of a fairly well-optimized .mk file.
 
-Makefile variables:
+## Makefile variables:
 
 CXX: C++ compiler.  For example, for a serial compile, set this to g++.  For
 parallel, set it to mpiCC or mpicxx (or mpic++).
